@@ -1,16 +1,12 @@
 
-<?php
+<!-- Incluir conexão com a base de dados -->
 
-require 'connection.php';
+<!-- Obter os dados do formulário com o método adequado -->
 
-$id = $_POST['id'];
+<!-- Criar query de delete no banco de dados e executá-la -->
 
-$sql = "DELETE FROM users.user WHERE id='$id'";
+<!-- Se deletado com sucesso redirecionar para a index do projeto header('Location': index.php) , senão retornar um erro! -->
 
-if(mysqli_query($link, $sql)){
-    header('Location: index.php');
-}else{
-	echo "Erro! " . mysqli_error();
-}
+<!-- Fechar conexão com o banco de dados. Usar mysqli_close() -->
 
-mysqli_close($link);
+

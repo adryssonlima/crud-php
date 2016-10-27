@@ -1,12 +1,9 @@
-<?php
 
-require 'connection.php';
-
-$sql = "SELECT * FROM user";
-
-$lista = mysqli_query($link, $sql);
-
-?>
+<!--
+	Incluir a conexão com a base de dados.
+	Criar query de consulta para pegar todos os registros da base de dados.
+	Usar a função mysqli_query() do PHP para retornar os dados do banco.
+-->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,9 +35,10 @@ $lista = mysqli_query($link, $sql);
 			</div>
 
 			<div class="col-md-5">
-				<form action="buscar.php" method="get">
+				<form action="" method=""> <!-- Incluir action e method adequados no formulário -->
+					<!-- Adicionar um name para cada input do fomulário -->
 					<div class="input-group h2">
-						<input type="text" class="form-control" name="nome" placeholder="Persquisar Usuário">
+						<input type="text" class="form-control" placeholder="Persquisar Usuário">
 						<span class="input-group-btn">
 							<button class="btn btn-info" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
@@ -73,18 +71,19 @@ $lista = mysqli_query($link, $sql);
 				    </thead>
 				    <tbody>
 
-				    <?php while($dados = mysqli_fetch_assoc($lista)): ?>
+				    <!-- Laço de repetição para exibir a lista de registros do banco (Usar a função mysqli_fetch_assoc()) -->
 				        <tr>
-				            <td class="idUser"><?= $dados["id"] ?></td>
-				            <td><?= $dados["nome"] ?></td>
-				            <td><?= $dados["email"] ?></td>
-				            <td><?= $dados["senha"] ?></td>
+				            <td><!-- id --></td>
+				            <td><!-- nome --></td>
+				            <td><!-- email--></td>
+				            <td><!-- senha --></td>
 				            <td class="actions">
-				                <a class="btn btn-success btn-xs" href="popula-form.php?id=<?= $dados["id"] ?>&opcao=Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-				                <a class="btn btn-danger btn-xs"  href="popula-form.php?id=<?= $dados["id"] ?>&opcao=Excluir"><span class="glyphicon glyphicon-trash"></span></a>
+				            	<!-- Fazer a chamada do arquivo que irá preencher o formulário para edição ou exclusão (Deve-se passar 2 parâmetros pela URL, id e opcao) -->
+				                <a class="btn btn-success btn-xs" href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+				                <a class="btn btn-danger btn-xs"  href="#"><span class="glyphicon glyphicon-trash"></span></a>
 				            </td>
 				        </tr>
-				    <?php endwhile; ?>
+				    <!-- Fim do laço -->
 
 				    </tbody>
 				</table>
@@ -102,21 +101,22 @@ $lista = mysqli_query($link, $sql);
                         <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Novo Usuário</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="insert.php" method="post">
+                        <form action="" method=""> <!-- Incluir action e method adequados no formulário -->
+                        	<!-- Adicionar um name para cada input do fomulário -->
                             <div class="row">
                               <div class="form-group col-md-12">
                                   <label for="nome">Nome:</label>
-                                  <input type="text" class="form-control" name="nome" placeholder="Nome">
+                                  <input type="text" class="form-control" placeholder="Nome">
                               </div>
                             </div>
                             <div class="row">
                               <div class="form-group col-md-6">
                                   <label for="email">Email:</label>
-                                  <input type="email" class="form-control" name="email" placeholder="exemplo@email.com">
+                                  <input type="email" class="form-control" placeholder="exemplo@email.com">
                               </div>
                               <div class="form-group col-md-6">
                                   <label for="senha">Senha:</label>
-                                  <input type="password" class="form-control" name="senha" placeholder="Máximo 10 caracteres">
+                                  <input type="password" class="form-control" placeholder="Máximo 10 caracteres">
                               </div>
                             </div>
                             </div>

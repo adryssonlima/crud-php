@@ -1,17 +1,13 @@
-<?php
 
-require 'connection.php';
+<!-- Incluir conexão com a base de dados -->
 
-$id = $_GET['id'];
-$opcao = $_GET['opcao'];
+<!-- Obter os dados do formulário com o método adequado -->
 
-$sql = "SELECT * FROM user WHERE id = $id";
+<!-- Criar query de consulta no banco de dados e executá-la -->
 
-if($dados = mysqli_query($link, $sql)){
+<!-- Criar um array associativo com o retorno da consulta. Usar a função mysqli_fetch_assoc() -->
 
-    $registro = mysqli_fetch_assoc($dados);
-    
-?>
+<!-- Se a consulta retornar os dados exibir o formulário e preenchêlo com os dados vindos do banco -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,7 +18,6 @@ if($dados = mysqli_query($link, $sql)){
 	<title>CRUD com PHP</title>
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<!--<link href="css/style.css" rel="stylesheet">-->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
@@ -33,43 +28,45 @@ if($dados = mysqli_query($link, $sql)){
 		<div id="top" class="row">
 
 			<div class="col-md-12">
-				<?php if($opcao == 'Editar') { ?>
+				<!-- Inserir condição para verificar qual ação foi clicada -->
+				<!-- Se editar -->
 					<h4><span class="glyphicon glyphicon-pencil"></span> Editar Usuário</h4>
-				<?php }else if($opcao == 'Excluir') { ?>
+				<!-- Se excluir -->
 					<h4><span class="glyphicon glyphicon-trash"></span> Tem certeza que deseja excluir este usuário?</h4>
-				<?php } ?>
 			</div>
 		</div> <!-- /#top -->
 
 
 		<div class="row"> <!-- form -->
 			<div class="col-md-6">
-			    <form action="<?php if($opcao == 'Editar') echo "update.php"; else if($opcao == 'Excluir') echo "delete.php"; ?>" method="post">
+			    <form action="" method=""> <!-- Incluir action e method adequados no formulário (action vai depender da ação clicada) -->
+			    <!-- Adicionar um name para cada input do fomulário -->
 			        <div class="row">
 			          <div class="form-group col-md-12">
 			              <label for="nome">Nome:</label>
-			              <input type="text" class="nome form-control" name="nome" value="<?= $registro['nome'] ?>" />
+			              <input type="text" class="nome form-control" value="<?= $registro['nome'] ?>" />
 			              <input type="hidden" name="id" value="<?= $id ?>" />
 			          </div>
 			        </div>
 			        <div class="row">
 			          <div class="form-group col-md-6">
 			              <label for="email">Email:</label>
-			              <input type="email" class="email form-control" name="email" value="<?= $registro['email'] ?>" />
+			              <input type="email" class="email form-control" value="<?= $registro['email'] ?>" />
 			          </div>
 			          <div class="form-group col-md-6">
 			              <label for="senha">Senha:</label>
-			              <input type="password" class="senha form-control" name="senha" value="<?= $registro['senha'] ?>" />
+			              <input type="password" class="senha form-control" value="<?= $registro['senha'] ?>" />
 			          </div>
 			        </div>
 			        
 			        <div class="text-right">
 			        	<a class="btn btn-default" href="index.php">Cancelar</a>
-			            <?php if($opcao == 'Editar'){ ?>
+			            <!-- Inserir condição para saber qual ação foi clicada -->
+			            <!-- Se Editar -->
 			            	<button type="submit" class="alterar btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Alterar</button>
-			            <?php }else if ($opcao == 'Excluir'){ ?>
+			            <!-- Se Excluir -->
 			            	<button type="submit" class="alterar btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Sim</button>
-			            <?php } ?>
+			            
 			        </div>
 			    </form>
 
@@ -84,17 +81,14 @@ if($dados = mysqli_query($link, $sql)){
 </body>
 </html>
 
+<!-- Senão retornar erro "Registro não encontrado" -->
+
+<!-- Fechar a conexão com o banco" -->
+
+
+
+
 <?php
-
-}else{
-
-	mysqli_error();
-	echo "Registro não encontrado. :( ";
-
-}
-
-mysqli_close($link);
-
 
 if($opcao == 'Excluir'){
 
