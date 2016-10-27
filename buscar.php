@@ -21,32 +21,10 @@ $lista = mysqli_query($link, $sql);
  <link href="css/bootstrap.min.css" rel="stylesheet">
  <link href="css/style.css" rel="stylesheet">
 </head>
-<body> 
+<body style="background-color: #eee;"> 
 
 	<div id="main" class="container-fluid">
 
-	    <div id="top" class="row">
-
-			<div class="col-md-3">
-				<h2>Usuários</h2>
-			</div>
-
-			<div class="col-md-6">
-				<form action="buscar.php" method="post">
-					<div class="input-group h2">
-						<input type="text" class="form-control" name="nome" placeholder="Persquisar Usuário">
-						<span class="input-group-btn">
-							<button class="btn btn-primary" type="submit">
-								<span class="glyphicon glyphicon-search"></span>
-							</button>
-						</span>
-					</div>
-				</form>
-			</div>
-	 
-	    </div> <!-- /#top -->
-	 
-	    <hr />
 	    <div id="list" class="row">
 	     
 			<div class="table-responsive col-md-12">

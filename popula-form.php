@@ -27,7 +27,7 @@ if($dados = mysqli_query($link, $sql)){
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: #eee;">
 
 	<div id="main" class="container-fluid">
 
@@ -67,7 +67,7 @@ if($dados = mysqli_query($link, $sql)){
 			        <div class="text-right">
 			        	<a class="btn btn-default" href="index.php">Cancelar</a>
 			            <?php if($opcao == 'Editar'){ ?>
-			            	<button type="submit" class="alterar btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Alterar</button>
+			            	<button type="submit" class="alterar btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Alterar</button>
 			            <?php }else if ($opcao == 'Excluir'){ ?>
 			            	<button type="submit" class="alterar btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Sim</button>
 			            <?php } ?>

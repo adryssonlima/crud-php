@@ -23,7 +23,7 @@ $lista = mysqli_query($link, $sql);
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: #eee;">
 
 	<div id="main" class="container-fluid">
 
@@ -33,12 +33,18 @@ $lista = mysqli_query($link, $sql);
 				<h2><span class="glyphicon glyphicon-user"></span> Usuários</h2>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-1" style="padding-top: 25px;">
+				<a href="https://www.facebook.com/adryssonlima"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+         		<a href="https://www.linkedin.com/in/adryssonlima"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+          		<a href="https://github.com/adryssonlima"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+			</div>
+
+			<div class="col-md-5">
 				<form action="buscar.php" method="get">
 					<div class="input-group h2">
 						<input type="text" class="form-control" name="nome" placeholder="Persquisar Usuário">
 						<span class="input-group-btn">
-							<button class="btn btn-primary" type="submit">
+							<button class="btn btn-info" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</span>
@@ -76,8 +82,8 @@ $lista = mysqli_query($link, $sql);
 				            <td><?= $dados["email"] ?></td>
 				            <td><?= $dados["senha"] ?></td>
 				            <td class="actions">
-				                <a class="btn btn-warning btn-xs" href="popula-form.php?id=<?= $dados["id"] ?>&opcao=Editar">Editar</a>
-				                <a class="btn btn-danger btn-xs"  href="popula-form.php?id=<?= $dados["id"] ?>&opcao=Excluir">Excluir</a>
+				                <a class="btn btn-success btn-xs" href="popula-form.php?id=<?= $dados["id"] ?>&opcao=Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+				                <a class="btn btn-danger btn-xs"  href="popula-form.php?id=<?= $dados["id"] ?>&opcao=Excluir"><span class="glyphicon glyphicon-trash"></span></a>
 				            </td>
 				        </tr>
 				    <?php endwhile; ?>
@@ -127,10 +133,7 @@ $lista = mysqli_query($link, $sql);
       </div>
 
 	    <div id="bottom" class="row">
-          <a href="#"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
           
-          <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
 	    </div> <!-- /#bottom -->
 		</div>  <!-- /#main -->
 
