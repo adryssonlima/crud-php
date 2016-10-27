@@ -29,7 +29,6 @@
 			</div>
 
 			<div class="col-md-1" style="padding-top: 25px;">
-				<a href="https://www.facebook.com/adryssonlima"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
          		<a href="https://www.linkedin.com/in/adryssonlima"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
           		<a href="https://github.com/adryssonlima"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
 			</div>
