@@ -8,7 +8,6 @@ $lista = mysqli_query($link, $sql);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +18,6 @@ $lista = mysqli_query($link, $sql);
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <!--<link href="css/style.css" rel="stylesheet">-->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
@@ -104,7 +102,7 @@ $lista = mysqli_query($link, $sql);
                         <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Novo Usuário</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="inserir.php" method="post">
+                        <form action="insert.php" method="post">
                             <div class="row">
                               <div class="form-group col-md-12">
                                   <label for="nome">Nome:</label>

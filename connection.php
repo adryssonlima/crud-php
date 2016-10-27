@@ -6,8 +6,4 @@
 	    exit();
 	}
 
-	//echo "Conectado com sucesso!";
-
-	//mysqli_close($link);
-
 ?>

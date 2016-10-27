@@ -43,7 +43,7 @@ $lista = mysqli_query($link, $sql);
 				   	if(mysqli_num_rows($lista) == 0){
 
 						echo "<h3>Usuário não encontrado! :(</h3>";
-
+						
 					}else{
 						echo "<h3>Usuário encontrado! :)</h3>";
 				    	while($dados = mysqli_fetch_assoc($lista)): ?>
