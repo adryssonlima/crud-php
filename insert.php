@@ -1,12 +1,21 @@
 
-<!-- Incluir conexão com a base de dados -->
+<?php
 
-<!-- Obter os dados do formulário com o método adequado -->
+require 'connection.php';
 
-<!-- Criar query de inserção no banco de dados e executá-la -->
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-<!-- Se inserido com sucesso redirecionar para a index do projeto header('Location': index.php) , senão retornar um erro! -->
+$sql = "INSERT INTO user VALUES(default, '$nome', '$email', '$senha')";
 
-<!-- Fechar conexão com o banco de dados. Usar mysqli_close() -->
+if(mysqli_query($link, $sql)){
+	header('Location: index.php');
+}else{
+	mysqli_error();
+	echo "Erro ao inserir dados. :( ";
+}
 
+mysqli_close($link);
 
+?>

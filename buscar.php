@@ -1,12 +1,14 @@
+<?php
 
-<!-- Incluir conexão com a base de dados -->
+require 'connection.php';
 
-<!-- Obter os dados do formulário com o método adequado -->
+$nome = $_GET['nome'];
 
-<!-- Criar query de busca no banco de dados e executá-la -->
+$sql = "SELECT * FROM user WHERE nome LIKE '%$nome%'";
 
-<!-- Fechar conexão com o banco de dados. Usar mysqli_close() -->
+$lista = mysqli_query($link, $sql);
 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,20 +38,22 @@
 				         </tr>
 				    </thead>
 				    <tbody>
-				    	<!-- Inserir condição para verificar se a consulta retornou o registro. Usar a função mysqli_num_rows() -->
 
-				    	<!-- Se não retornado -->
-						<h3>Usuário não encontrado! :(</h3>
-						<!-- Senão -->
-						<h3>Usuário encontrado! :)</h3>
-						<!-- Inserir laço para exibir os dados do registro encontrado. Usar a função mysqli_fetch_assoc() -->
+				    <?php 
+				   	if(mysqli_num_rows($lista) == 0){
+
+						echo "<h3>Usuário não encontrado! :(</h3>";
+						
+					}else{
+						echo "<h3>Usuário encontrado! :)</h3>";
+				    	while($dados = mysqli_fetch_assoc($lista)): ?>
 					        <tr>
-					            <td><!-- id --></td>
-					            <td><!-- nome --></td>
-					            <td><!-- email --></td>
-					            <td><!-- senha --></td>
+					            <td><?= $dados["id"] ?></td>
+					            <td><?= $dados["nome"] ?></td>
+					            <td><?= $dados["email"] ?></td>
+					            <td><?= $dados["senha"] ?></td>
 					        </tr>
-				   		<!-- Fim do laço -->
+				    <?php endwhile; } ?>
 
 				    </tbody>
 				</table>
